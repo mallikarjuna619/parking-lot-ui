@@ -1,0 +1,9 @@
+<p *ngIf="!parkingSlots"><em>Loading...</em></p>
+
+<div class="row" *ngFor="let parkingSlotArray of parkingSlots; let i = index ">
+    <div class="col" *ngFor="let parkingSlot of parkingSlotArray" >
+      <div >
+        <app-parking-slot [parkingSlotData]="parkingSlot"></app-parking-slot>
+      </div>
+    </div>
+  </div>

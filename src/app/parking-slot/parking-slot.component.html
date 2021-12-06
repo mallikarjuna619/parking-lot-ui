@@ -1,0 +1,20 @@
+<div *ngIf="parkingSlotData">
+    <div class="card m-2" [ngClass]="getBackgroundColor()" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Slot Id: {{parkingSlotData.id}}</h5>
+          <h6 class="card-subtitle mb-2" *ngIf="parkingSlotData.vehicle.regNumber"><b>Vehicle Details</b></h6>
+          <div class="card-text"><b>Allocated: </b>{{parkingSlotData.allocated ? 'Yes' : 'No'}} </div>
+          <div class="card-text" *ngIf="parkingSlotData.vehicle.regNumber"><b>Reg Number: </b>{{parkingSlotData.vehicle.regNumber}} </div>
+          <div class="card-text" *ngIf="parkingSlotData.vehicle.ownerMobileNumber"><b>Contact Number: </b>{{parkingSlotData.vehicle.ownerMobileNumber}} </div>
+          <div class="card-text" *ngIf="parkingSlotData.vehicleInTime"><b>In Time: </b>{{parkingSlotData.vehicleInTime | date:'shortTime'}}</div>
+          <div class="card-text" *ngIf="parkingSlotData.vehicleOutTime"><b>Out Time: </b>{{parkingSlotData.vehicleOutTime | date:'shortTime'}} </div>
+          <span *ngIf="parkingSlotData.allocated">
+          <a href="#" class="btn btn-primary m-1">Re-Allocated</a>
+          <a href="#" class="btn btn-primary">exit</a>
+          </span>
+          <span *ngIf="!parkingSlotData.allocated">
+            <a href="#" class="btn btn-primary">Allocate</a>
+          </span>
+        </div>
+      </div>
+</div>
